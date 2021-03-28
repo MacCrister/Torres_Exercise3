@@ -6,7 +6,7 @@
 <div class="container">
         <h1> Client Registration </h1>
         <form method="post">
-            <div asp-validation-summary="All"></div></di>
+            <div asp-validation-summary="All"></div>
             <div class="form-group">
                 <label> Name </label>
                 <input class="form-control" asp-for="Client.ClientName" />
@@ -45,6 +45,7 @@
             <th>Client Address</th>
             <th>Client Email Address</th>
             <th>Client Type of Subscription</th>
+            <th>Actions<th>
         </tr>
     </thead>
     <tbody>
@@ -58,6 +59,7 @@
                 <td>@client.ClientAddress</td>
                 <td>@client.ClientEmailAdd</td>
                 <td>@client.ClientSubscription</td>
+                <td><a asp-page="Edit" asp-route-id="@client.ClientId">Edit</a> | <a asp-page="Client" asp-page-handler="Delete" asp-route-id="@client.ClientId">Delete</a></td>
             </tr>
         }
     </tbody>

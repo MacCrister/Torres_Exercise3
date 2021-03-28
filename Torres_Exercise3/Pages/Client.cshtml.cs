@@ -35,5 +35,16 @@ namespace Torres_Exercise3.Pages
             _torresCafeDBContext.SaveChanges();
             return Redirect("/index");
         }
+        public void OnGetDelete(int id)
+        {
+            var clnt = _torresCafeDBContext.Clients.FirstOrDefault(c => c.ClientId == id);
+
+            if (clnt != null)
+            {
+                _torresCafeDBContext.Clients.Remove(clnt);
+                _torresCafeDBContext.SaveChanges();
+            }
+            OnGet();
+        }
     }
 }
